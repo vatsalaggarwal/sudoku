@@ -121,7 +121,7 @@ class Sudoku\
                     sComposite = line[i];\
                     for(o=0; o<9; o++)\
                         \{\
-                          if(o!=i)\
+                          if(o!=i)//REMOVES POSSIBILITY FROM OTHER POSSIBILITY STRINGS\
                               \{\
                                 line[o] = remove(line[o],sComposite);\
                               \}\
@@ -132,7 +132,7 @@ class Sudoku\
                     if(j!=i)\
                         \{\
                           sComposite = line[i] + line[j];\
-                              sComposite = reduce(sComposite);\
+                              sComposite = reduce(sComposite);// SUPPOSE YOU HAVE \'9312\'94 \'9312\'94 => YOU CAN ELIMINATE \'9312\'94 FROM OTHER POSSIBILITY STRINGS\
                               if(sComposite.length() == 2)\
                               \{\
                                     for(o=0; o<9; o++)\
@@ -147,7 +147,7 @@ class Sudoku\
                               \{\
                                     if( (k!=i) && (k!=j) )\
                                     \{\
-                                          sComposite = sComposite + line[k];\
+                                          sComposite = line[i] + line[j]+ line[k];// SUPPOSE YOU HAVE \'9312\'94 \'9323\'94 \'9313\'94 => YOU CAN ELIMINATE \'93123\'94 FROM OTHER POSSIBILITY STRINGS\
                                           sComposite = reduce(sComposite);\
                                           if(sComposite.length() == 3)\
                                           \{\
@@ -163,7 +163,7 @@ class Sudoku\
                                           \{\
                                             if( (l!=i) && (l!=j) && (l!=k) )\
                                                 \{\
-                                                      sComposite = sComposite + line[l];\
+                                                      sComposite = line[i] + line[j]+ line[k]+ line[l];\
                                                       sComposite = reduce(sComposite);\
                                                       if(sComposite.length() == 4)\
                                                       \{\
@@ -179,7 +179,7 @@ class Sudoku\
                                                       \{\
                                                         if( (m!=i) && (m!=j) && (m!=k) && (m!=l) )\
                                                             \{\
-                                                                  sComposite = sComposite + line[m];\
+                                                                  sComposite = line[i] + line[j]+ line[k]+ line[l] + line[m];\
                                                                   sComposite = reduce(sComposite);\
                                                                   if(sComposite.length() == 5)\
                                                                   \{\
