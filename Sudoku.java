@@ -8,8 +8,8 @@
 class Sudoku\
 \{\
   static int count = 0, totalcount = 0, iterations = 0;\
-      static int[][] in =\
-      \{\
+      static int[][] in = \
+      \{ //input puzzle here\
             \{ 5, 0, 0, 8, 0, 0, 0, 0, 0 \},\
             \{ 8, 0, 0, 0, 0, 0, 5, 0, 0 \},\
             \{ 0, 0, 3, 0, 5, 2, 0, 0, 1 \},\
@@ -132,10 +132,10 @@ class Sudoku\
                     if(j!=i)\
                         \{\
                           sComposite = line[i] + line[j];\
-                              sComposite = reduce(sComposite);// SUPPOSE YOU HAVE \'9312\'94 \'9312\'94 => YOU CAN ELIMINATE \'9312\'94 FROM OTHER POSSIBILITY STRINGS\
-                              if(sComposite.length() == 2)\
+                              sComposite = reduce(sComposite);// SUPPOSE YOU HAVE \'9312\'94 \'9312\'94 in 2 squares => YOU CAN ELIMINATE \'9312\'94 FROM OTHER POSSIBILITY STRINGS\
+                              if(sComposite.length() == 2) // if the length is bigger than 2 => we need to consider more squares\
                               \{\
-                                    for(o=0; o<9; o++)\
+                                    for(o=0; o<9; o++) //removes from other possibility strings\
                                     \{\
                                           if( (o!=i) && (o!=j) )\
                                           \{\
@@ -147,7 +147,7 @@ class Sudoku\
                               \{\
                                     if( (k!=i) && (k!=j) )\
                                     \{\
-                                          sComposite = line[i] + line[j]+ line[k];// SUPPOSE YOU HAVE \'9312\'94 \'9323\'94 \'9313\'94 => YOU CAN ELIMINATE \'93123\'94 FROM OTHER POSSIBILITY STRINGS\
+                                          sComposite = line[i] + line[j]+ line[k];// SUPPOSE YOU HAVE \'9312\'94 \'9323\'94 \'9313\'94 in 3 squares => YOU CAN ELIMINATE \'93123\'94 FROM OTHER POSSIBILITY STRINGS\
                                           sComposite = reduce(sComposite);\
                                           if(sComposite.length() == 3)\
                                           \{\
@@ -201,7 +201,7 @@ class Sudoku\
                   \}\
             \}\
       \}\
-      public static String remove(String s, String s2Remove)\
+      public static String remove(String s, String s2Remove) //removes all characters of s2Remove from s\
       \{\
         int i;\
             String rv = "";\
@@ -220,25 +220,7 @@ class Sudoku\
             \}\
             return rv;\
       \}\
-      public static boolean isSubsetOf(String s1, String s2)\
-      \{\
-        if(s1.equals(s2))\
-              return true;\
-            int l2 = s2.length();\
-            int subcount = 0;\
-            for(int i=0; i < l2; i++)\
-            \{\
-              char c2 = s2.charAt(i);\
-                  if(s1.indexOf(c2) >= 0)\
-                  \{\
-                    subcount++;\
-                  \}\
-            \}\
-            if(subcount == l2)\
-              return true;\
-            return false;\
-      \}\
-      public static String reduce(String pString)\
+      public static String reduce(String pString) //removes repeated numbers\
       \{\
         String rv = "";\
             int i;\
@@ -256,7 +238,7 @@ class Sudoku\
             \}\
             return rv;\
       \}    \
-      public static void printMe()\
+      public static void printMe() //prints current instance of the possibilities array of the puzzle\
       \{\
         int i, j;\
             for(i=0; i < 9; i++)\
@@ -271,7 +253,7 @@ class Sudoku\
             System.out.println("totalcount: " + totalcount + ", iterations: " + iterations + ", count: " + count + " ------------------------");\
             //System.out.println();\
       \}\
-      public static String rpad(String p, int w)\
+      public static String rpad(String p, int w) //function to pad spaces to use while printing the sudoku\
       \{\
         String s = "" + p;\
             int l = w - p.length();\
