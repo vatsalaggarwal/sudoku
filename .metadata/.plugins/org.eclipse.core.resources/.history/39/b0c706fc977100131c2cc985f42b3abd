@@ -1,0 +1,63 @@
+package grid;
+
+abstract class GRC {
+int Lgth = 9;
+Square[] container;//contains the 9 squares that make up a grid, column, or row
+
+public GRC()
+{
+	container = new Square[9];
+}
+
+public String solved() //returns the String of the 
+{
+	int length=container.length;
+	String solved="";
+	for(int i=0; i<length;i++)
+	{
+		System.out.println(i);
+		if(container[i].isSolved());
+		{
+		solved=solved+i;
+		}
+	}
+		
+	return solved;
+}
+
+public String unSolved()
+{
+	String solved = solved();
+	int length=solved.length();
+	String unsolved="";
+	int counter=0;
+	for(int i=0; i<length;i++)
+	{
+		if(counter==solved.charAt(i))
+		{
+			counter++;
+		}
+		else
+		{
+			unsolved=unsolved+counter;
+		}
+	}
+	return unsolved;
+}
+
+public Square getSquare(int number)
+{
+	return container[number];
+}
+
+public void removePoss(int poss)
+{
+	String unsolved=unSolved();
+	int length = unsolved.length();
+	for(int i=0; i<length; i++)
+	{
+		container[i].removePoss(poss);
+	}
+}
+
+}

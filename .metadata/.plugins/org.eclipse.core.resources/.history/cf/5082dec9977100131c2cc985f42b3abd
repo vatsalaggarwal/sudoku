@@ -1,0 +1,20 @@
+package grid;
+
+public class Grid extends GRC {
+int LgthSqRt = (int)Math.pow(Lgth, 1/2);
+
+public Grid(int number)
+	{
+		super();
+		int startSquare = ((int)number/3)*18 + 3*number;//((int)n/3)*27) + (n-((int)n/3)*3)) * 3
+		for(int i=0 ; i<LgthSqRt ; i++)
+		{
+			for(int j=0 ; j<LgthSqRt ; j++)
+			{
+				System.out.println(""+(i*3+j)+","+(startSquare+i*9+j));
+				 container[i*3+j]=SquareContainer.getSquare(startSquare+i*9+j);
+			}
+		}
+	}
+	
+}

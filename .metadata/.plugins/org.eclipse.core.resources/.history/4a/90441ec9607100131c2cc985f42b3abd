@@ -1,0 +1,22 @@
+package grid;
+// grid consists of rows and columns of array of squares? what would be easier for 
+//samurai sudoku
+public class Grid extends GRC {
+Square[] container = new Square[9];
+
+	public Grid(int column, int row)
+	{
+		int number = 3; //what should i label this?
+		column*=number;
+		row*=number;
+		for(int i=0;i<number;i++)
+		{
+			for(int j=0;j<number;j++,row++)
+			{
+				container[(i*number)+j]=GRC.getColumn(column).getSquare(row);
+			}
+			row-=number;
+		}
+	}
+	
+}

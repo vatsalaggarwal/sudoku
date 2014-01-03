@@ -1,0 +1,11 @@
+package grid;
+
+public class Column extends GRC{
+Square[] container = new Square[9];
+
+public Square getSquare(int number)
+{
+	return container[number];
+}
+
+}

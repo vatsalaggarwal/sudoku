@@ -1,0 +1,19 @@
+package solver;
+
+public class UIConnector {
+
+	public static void Initialize()
+	{
+		grid.Main.init();
+	}
+	
+	public static void Solve()
+	{
+		
+	}
+	
+	public static void PrintPuzzle()
+	{
+		
+	}
+}

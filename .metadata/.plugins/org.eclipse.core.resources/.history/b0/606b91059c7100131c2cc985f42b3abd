@@ -1,0 +1,19 @@
+package ui;
+
+public class test {
+
+	public static void main(String[] args)
+	{
+		String sPoss="123456789";
+		int length = sPoss.length();
+		for (int i=0; i< length; i++)
+		{
+			if(sPoss.charAt(i)!=(""+7).charAt(0))
+			{
+				sPoss=sPoss+(i+1);
+			}
+		}
+		System.out.println(sPoss.substring(length));
+	}
+	
+}

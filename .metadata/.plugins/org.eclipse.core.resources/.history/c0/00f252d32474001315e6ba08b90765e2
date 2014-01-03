@@ -1,0 +1,113 @@
+package grid;
+
+abstract class GRC {
+int Lgth = 9;
+Square[] container;//contains the 9 squares that make up a grid, column, or row
+int count;
+
+public GRC()
+{
+	container = new Square[9];
+}
+
+public String solved() //returns the String of the 
+{
+	int length=container.length;
+	String solved="";
+	for(int i=0; i<length;i++)
+	{
+		if(container[i].isSolved())
+		{
+		solved=solved+i;
+		}
+	}
+		
+	return solved;
+}
+
+public String unSolved()
+{
+	int length=container.length;
+	String unsolved="";
+	for(int i=0; i<length;i++)
+	{
+		if(!container[i].isSolved())
+		{
+		unsolved=unsolved+i;
+		}
+	}
+	return unsolved;
+}
+
+public Square getSquare(int number)
+{
+	return container[number];
+}
+
+public void removePoss(int poss)
+{
+	String unsolved=unSolved();
+	int length = unsolved.length();
+	for(int i=0; i<length; i++)
+	{
+		container[i].removePoss(poss);
+	}
+}
+
+public int doSolve()
+{
+	String sComposite;
+	int i,j,k,l,m, o;
+	for (i=0;i<9;i++)
+	{
+		for(j=0;j<9;j++)
+			if(i!=j)
+			{
+				sComposite=reduce(getSquare(i).getPoss()+getSquare(j).getPoss());
+				if(sComposite.length()==2)
+				{
+					for (o=0;o<9;o++)
+						if((o!=i)&(o!=j))
+						{
+							getSquare(o).removePoss(sComposite);
+						}
+				}
+				for(k=0;k<9;k++)
+				{
+					if((k!=i)&&(k!=j))
+					{
+						sComposite=reduce(getSquare(i).getPoss()+getSquare(j).getPoss()+getSquare(k).getPoss());
+						if(sComposite.length()==3)
+						{
+							for (o=0;o<9;o++)
+								if((o!=i)&(o!=j)&(o!=k))
+								{
+									getSquare(o).removePoss(sComposite);
+								}
+						}
+					}
+				}
+			}
+	}
+	return getCount();
+}
+
+public static String reduce(String s)
+{
+	String toReturn="";
+	int length=s.length();
+	for (int i=0;i<length;i++)
+	{
+		if(!(toReturn.indexOf(s.charAt(i))>=0))
+		{
+			toReturn+=s.charAt(i);
+		}
+	}
+	return toReturn;
+}
+
+public int getCount()
+{
+	return count;
+}
+}

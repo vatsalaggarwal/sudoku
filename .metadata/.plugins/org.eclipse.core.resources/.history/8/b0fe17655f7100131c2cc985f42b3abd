@@ -1,0 +1,6 @@
+package grid;
+// grid consists of rows and columns of array of squares? what would be easier for 
+//samurai sudoku
+public class Grid extends GRC {
+
+}

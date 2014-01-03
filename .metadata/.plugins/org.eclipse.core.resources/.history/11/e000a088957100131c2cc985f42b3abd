@@ -1,0 +1,10 @@
+package grid;
+
+public class test {
+public static void main(String[] args)
+{
+	Square n = new Square();
+	System.out.print(n.getValue());
+	
+}
+}

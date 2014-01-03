@@ -1,0 +1,11 @@
+package grid;
+
+public class Row extends GRC{
+	Square[] container=new Square[9];//contains the 9 squares that make up a grid, column, or row
+	// why not make input
+	public String solved() //returns the String of the 
+	{
+		return "";
+	}
+
+}

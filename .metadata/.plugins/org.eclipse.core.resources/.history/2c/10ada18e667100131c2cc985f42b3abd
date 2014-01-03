@@ -1,0 +1,15 @@
+package grid;
+
+public class Square {
+int value=0; //holds the value of the square( 0 if value is not found)
+String possibilities="123456789"; //holds the numbers that can be the value
+
+public boolean isSolved()
+{
+	if(value==0)
+		return false;
+	else
+		return true;
+}
+
+}

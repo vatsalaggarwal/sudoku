@@ -1,0 +1,56 @@
+package grid;
+
+public class Square {
+int value=0; //holds the value of the square( 0 if value is not found)
+String poss="123456789";//holds the numbers that can be the value
+GRC grid, column, row;
+
+public boolean isSolved()
+{
+	if(value==0)
+		return false;
+	else
+		return true;
+}
+
+public Square(Grid G, Column C, Row R)
+{
+	grid=G;
+	column=C;
+	row=R;
+}
+
+public void setValue(int value)
+{
+	this.value=value;
+	poss="";
+	reduce();
+}
+
+public void reduce()
+{
+	grid.removePoss(value);
+	column.removePoss(value);
+	row.removePoss(value);
+}
+
+public void removePoss(int poss)
+{
+	String sPoss=this.poss;
+	int length = sPoss.length();
+	for (int i=0; i< length; i++)
+	{
+		if(!(sPoss.charAt(i)==poss))
+		{
+			sPoss=sPoss+i;
+		}
+	}
+	setPoss(sPoss.substring(length));
+}
+
+public void setPoss(String pPoss)
+{
+	poss=pPoss;
+}
+
+}

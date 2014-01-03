@@ -1,0 +1,12 @@
+package grid;
+// grid consists of rows and columns of array of squares? what would be easier for 
+//samurai sudoku
+public class Grid extends GRC {
+Square[] container = new Square[9];
+
+	public Grid(int column, int row)
+	{
+		
+	}
+	
+}

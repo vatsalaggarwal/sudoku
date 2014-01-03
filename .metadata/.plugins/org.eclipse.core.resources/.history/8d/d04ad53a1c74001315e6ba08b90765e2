@@ -1,0 +1,30 @@
+package ui;
+
+public class Test {
+/*	public static void main(String[] args)
+	{
+		String squares="012345678";
+		String solved = "1234";
+		int length=solved.length();
+		String unsolved="";
+		for(int i=0; i<length;i++)
+		{
+			
+		}
+		System.out.println(unsolved);
+	}*/
+	
+	public static void main(String[] args)
+	{
+		int length=5;
+		String solved="";
+		for(int i=0; i<length;i++)
+		{
+			if(i%2==0)
+			{
+			solved=solved+i;
+			}
+		}
+		System.out.println(solved);
+	}
+}

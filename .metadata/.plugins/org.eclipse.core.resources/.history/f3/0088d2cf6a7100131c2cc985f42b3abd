@@ -1,0 +1,39 @@
+package solver;
+import java.util.Scanner;
+
+public class UIConnector {
+
+	public static void Initialize()
+	{
+		grid.Main.init();
+		takeInput();
+	}
+	
+	public static void Solve()
+	{
+		
+	}
+	
+	public static void PrintPuzzle()
+	{
+		
+	}
+	
+	public void takeInput()
+	{
+		boolean more=true;
+		Scanner sc = new Scanner(System.in);
+		int column, row, value;
+		while(more)
+		{
+			column = sc.next();
+			row = sc.next();
+			value = sc.nextLine();
+			if (column!=0)
+				grid.Main.input(column,row,value);
+			else
+				more=false;
+			
+		}
+	}
+}

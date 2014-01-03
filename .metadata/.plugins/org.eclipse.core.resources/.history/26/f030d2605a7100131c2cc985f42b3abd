@@ -1,0 +1,16 @@
+package ui;
+
+public class Run {
+	
+	public static void main()
+	{
+		Start();
+	}
+
+	public static void Start()
+	{
+		solver.UIConnector.Initialize();
+		solver.UIConnector.Solve();
+		solver.UIConnector.PrintPuzzle();
+	}
+}

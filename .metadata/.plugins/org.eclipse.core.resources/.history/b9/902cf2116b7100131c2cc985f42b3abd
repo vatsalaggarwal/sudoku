@@ -1,0 +1,42 @@
+package grid;
+
+public class Main {
+	static Column[] columns = new Column[9];
+	static Row[] rows = new Row[9];
+	static Grid[] grids = new Grid[9];
+	static int lgthSqRt = (int)Math.pow(9,1/2);
+	
+	public static GRC getColumn(int number)
+	{
+		return columns[number];
+	}
+	public static GRC getRow(int number)
+	{
+		return rows[number];
+	}
+	public static GRC getGrid(int number)
+	{
+		return grids[number];
+	}
+
+	public static void input(int column, int row, int value)
+	{
+		columns[column].getSquare(row).setValue(value);
+	}
+	public static int getGridNumber(int column, int row)// fix this
+	{
+		return 0;
+	}
+	public static void init()
+	{
+		for(int i=0;i<9;i++)
+		{
+			columns[i]=new Column(i);
+			rows[i]=new Row(i);
+			grids[i]=new Grid(i);
+			
+		}
+		grid.SquareContainer.init();
+	}
+	
+}

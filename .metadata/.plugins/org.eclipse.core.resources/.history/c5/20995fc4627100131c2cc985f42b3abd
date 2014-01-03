@@ -1,0 +1,15 @@
+package grid;
+
+class GRC {
+static Column[] columns = new Column[9];
+static Row[] rows = new Row[9];
+static Grid[] grids = new Grid[9];
+
+public static Column getColumn(int number)
+{
+	return columns[number];
+}
+
+
+
+}

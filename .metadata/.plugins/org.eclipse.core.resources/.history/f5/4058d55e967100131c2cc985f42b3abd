@@ -1,0 +1,13 @@
+package grid;
+
+public class Row extends GRC{
+	
+	public Row(int number)
+	{
+		for(int i=0; i<Lgth; i++)
+		{
+			container[i]=SquareContainer.getSquare(number*Lgth+i);
+		}
+	}
+
+}

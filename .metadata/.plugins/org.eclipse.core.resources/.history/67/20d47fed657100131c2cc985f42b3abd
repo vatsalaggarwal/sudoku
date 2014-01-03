@@ -1,0 +1,10 @@
+package grid;
+
+public class SquareContainer {
+	static Square[] squares = new Square[81];
+	
+	public static Square getSquare(int number)
+	{
+		return squares[number];
+	}
+}

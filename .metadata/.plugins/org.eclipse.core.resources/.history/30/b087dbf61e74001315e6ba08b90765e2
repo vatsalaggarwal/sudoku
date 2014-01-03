@@ -1,0 +1,18 @@
+package ui;
+
+public class Test {
+	public static void main(String[] args)
+	{
+		String sPoss="1567";
+		int length = sPoss.length();
+		for (int i=0; i< length; i++)
+		{
+			if(sPoss.charAt(i)!=(""+5).charAt(0))
+			{
+				sPoss=sPoss+(i+1);
+			}
+		}
+		System.out.println(sPoss);
+	}
+}
+
